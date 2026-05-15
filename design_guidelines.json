@@ -1,0 +1,155 @@
+{
+  "theme": "dark",
+  "archetype": "The Performance Pro (Archetype 2)",
+  "brand_voice": "Aggressive, masculine, high-performance, agency-floor energy, locker-room playbook. Tone is 'On the Field', 'Halftime', 'Playbook'.",
+  "colors": {
+    "background": {
+      "app": "#161b2e",
+      "surface": "#1b2035",
+      "card": "#252b40",
+      "elevated": "#2d354f"
+    },
+    "brand": {
+      "primary": "#00c4b4",
+      "primary_glow": "rgba(0, 196, 180, 0.4)",
+      "secondary": "#f59e0b",
+      "secondary_glow": "rgba(245, 158, 11, 0.4)"
+    },
+    "admin_semantic": {
+      "success": "#10b981",
+      "warn": "#f59e0b",
+      "danger": "#ef4444",
+      "info": "#3b82f6",
+      "pill_bg_success": "rgba(16, 185, 129, 0.15)",
+      "pill_bg_warn": "rgba(245, 158, 11, 0.15)",
+      "pill_bg_danger": "rgba(239, 68, 68, 0.15)",
+      "pill_bg_info": "rgba(59, 130, 246, 0.15)"
+    },
+    "text": {
+      "primary": "#f8fafc",
+      "secondary": "#94a3b8",
+      "muted": "#64748b",
+      "inverse": "#0f172a",
+      "accent_teal": "#00c4b4",
+      "accent_gold": "#f59e0b"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "display": "Bebas Neue, sans-serif",
+      "body": "DM Sans, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scales": {
+      "h1": "text-5xl sm:text-6xl tracking-tight uppercase font-display",
+      "h2": "text-4xl sm:text-5xl tracking-tight uppercase font-display",
+      "h3": "text-2xl sm:text-3xl font-display uppercase tracking-wide",
+      "body": "text-base font-body leading-relaxed",
+      "mono_id": "text-xs font-mono tracking-widest text-muted",
+      "jersey_number": "text-[8rem] leading-none font-display text-white/5 absolute -bottom-4 -right-4 pointer-events-none select-none"
+    }
+  },
+  "visual_effects": {
+    "depth_and_elevation": {
+      "grain": "fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay bg-[url('/noise.png')] (or implement SVG noise filter)",
+      "glass": "backdrop-blur-xl bg-[#1b2035]/70 border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.24)]",
+      "shadows": {
+        "card": "shadow-[0_4px_24px_rgba(0,0,0,0.12)]",
+        "glow_primary": "drop-shadow-[0_0_12px_rgba(0,196,180,0.4)]",
+        "glow_secondary": "drop-shadow-[0_0_12px_rgba(245,158,11,0.4)]"
+      }
+    }
+  },
+  "layout_and_spacing": {
+    "grid_client": "Bento layout, asymmetric grid-cols-1 md:grid-cols-12 gap-8. Generous padding (p-8 to p-12).",
+    "grid_admin": "Control room layout, dense grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4. Tight padding (p-4 to p-6).",
+    "general": "Never center-everything. Asymmetry creates tension. Use grid spans like col-span-8 and col-span-4 for hierarchy."
+  },
+  "motion_and_interactions": {
+    "hover": "hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(0,196,180,0.15)] hover:border-white/10 transition-all duration-300 ease-out",
+    "focus": "focus:ring-2 focus:ring-[#00c4b4] focus:outline-none focus:ring-offset-2 focus:ring-offset-[#161b2e]",
+    "entrance": "Staggered fade-up, translate-y-4 opacity-0 to translate-y-0 opacity-100",
+    "celebration": "Scale pulse on completion checkmarks, subtle gold/teal glow expanding outwards on finish",
+    "progress_ring": "Smooth stroke-dashoffset transition duration-1000 ease-in-out"
+  },
+  "component_patterns": {
+    "stat_cards": {
+      "client": "Asymmetric bento cards (bg-[#1b2035] or bg-[#252b40]). Feature large glowing 'jersey-number' styled metrics in the background (using 'jersey_number' typography scale). Hard edges or minimal rounded (rounded-sm).",
+      "admin": "Dense, crisp 1px borders (border-[#252b40]), monospace values for exact metrics, tight padding (p-4), subtle trend lines. Flat background."
+    },
+    "data_tables": {
+      "container": "w-full border-collapse border border-[#252b40] rounded-none bg-[#1b2035]",
+      "headers": "sticky top-0 bg-[#252b40] text-xs font-mono uppercase tracking-widest text-[#94a3b8] p-4 text-left border-b border-[#2d354f]",
+      "rows": "border-b border-[#252b40] hover:bg-[#2d354f]/50 transition-colors cursor-default",
+      "cells": "p-4 text-sm font-body text-[#f8fafc]",
+      "status_pill": "inline-flex items-center px-2 py-0.5 rounded-sm text-xs font-mono font-medium border border-current/20"
+    },
+    "video_player": {
+      "wrapper": "relative rounded-none border border-white/10 shadow-[0_0_40px_rgba(0,196,180,0.1)] overflow-hidden aspect-video bg-black",
+      "overlay": "absolute inset-0 bg-gradient-to-t from-[#161b2e]/90 via-transparent to-transparent pointer-events-none"
+    },
+    "upload_drop_zones": {
+      "container": "border-2 border-dashed border-[#00c4b4]/40 hover:border-[#00c4b4] hover:bg-[#00c4b4]/5 transition-colors p-12 text-center rounded-none",
+      "text": "text-[#94a3b8] font-mono text-sm uppercase tracking-wider"
+    },
+    "sidebars": {
+      "client": "Generous padding, large active state indicators (thick left border in teal #00c4b4), prominent tier ladder progress ring widget.",
+      "admin": "Slimmer, utility-focused, mono font navigation links, dark surface #1b2035 with 1px right border border-white/5. Semantic red for 'Churn Signals'."
+    },
+    "loading_skeletons": {
+      "style": "animate-pulse bg-[#252b40]/60 rounded-none"
+    }
+  },
+  "iconography": {
+    "library": "lucide-react",
+    "style": "Use 1.5px stroke width. Sharp, authoritative look. No unnecessary roundness.",
+    "recommendations": {
+      "playbook": "BookOpen, Shield, Target",
+      "halftime": "Clock, Activity",
+      "locker_room": "Users, Trophy",
+      "admin_war_room": "Terminal, Crosshair, Radar",
+      "sync": "RefreshCw, Database",
+      "success": "CheckSquare, CheckCircle2",
+      "churn_signal": "AlertTriangle, Flame"
+    }
+  },
+  "imagery_and_media": {
+    "images": [
+      {
+        "category": "login_splash",
+        "description": "Cinematic dark navy locker room background with neon teal and gold lighting. High performance sports theme. Use as main background for magic-link login page with a heavy black/navy overlay (bg-[#161b2e]/80) to ensure form legibility.",
+        "url": "https://static.prod-images.emergentagent.com/jobs/64343d5b-a819-4d36-936a-ffed7b48232b/images/a65b13f69bf2dc20c7bf965f91c18b12c80333dd8811278fc05fbffb563b9be3.png"
+      },
+      {
+        "category": "module_thumbnail_playbook",
+        "description": "Abstract tactical playbook diagram on a dark navy chalkboard, glowing teal lines and X and O patterns. Use for Module grid thumbnails or course headers.",
+        "url": "https://static.prod-images.emergentagent.com/jobs/64343d5b-a819-4d36-936a-ffed7b48232b/images/e2becee92f9381969bc12138605bfa019aac5d97811cbc5dac63a6b27743a5a5.png"
+      },
+      {
+        "category": "admin_dashboard_bg",
+        "description": "Dark control room abstract background, subtle glowing gold and teal data nodes. Use as a subtle textured background header for the Admin portal top section.",
+        "url": "https://static.prod-images.emergentagent.com/jobs/64343d5b-a819-4d36-936a-ffed7b48232b/images/20385e14b740815d72a3cf38473432a4f4454686027e7cedadba60805b19f114.png"
+      },
+      {
+        "category": "empty_state_helmet",
+        "description": "Empty state illustration, sleek dark mode, minimalist sports helmet wireframe glowing in teal. Use for 'No Documents Found', 'No Lessons', or 'Sync Complete' states.",
+        "url": "https://static.prod-images.emergentagent.com/jobs/64343d5b-a819-4d36-936a-ffed7b48232b/images/6c5a6f4142cc6c9306acbf5f3b0812a08f6d54cef08739ffe2fcadd24884c675.png"
+      }
+    ],
+    "usage_guidelines": "Never use placeholder text or gray boxes. Always use provided image URLs. The hero image is a paid asset — let it breathe. Ensure overlays are maximum bg-black/50 or bg-[#161b2e]/80 if text contrast is required."
+  },
+  "testing": {
+    "data_testid_convention": "All interactive and key informational elements MUST include a data-testid attribute using kebab-case, role-based formatting (e.g., 'login-form-submit-button', 'admin-client-row', 'lesson-video-player', 'ghl-sync-button')."
+  },
+  "instructions_to_main_agent": [
+    "Strictly adhere to the dark navy (#161b2e) and teal (#00c4b4) palette. Do not invent external grays (like slate/gray from Tailwind); explicitly use the provided hex codes or Tailwind arbitrary values like bg-[#1b2035].",
+    "Implement 'Bebas Neue' (font-display) for all H1/H2 and large metric numbers to evoke the 'Locker Room / Playbook' feel. Never use generic sans for headings.",
+    "Implement 'DM Sans' (font-body) for readability in body text.",
+    "Implement 'JetBrains Mono' (font-mono) for all IDs, timestamps, and admin data table headers.",
+    "Ensure the Admin Portal feels distinctively denser and more 'tactical war-room' (Grid: Mode B) compared to the Client Portal's spacious, motivational layout (Grid: Mode A).",
+    "Integrate the generated images into their respective components (Hero/Login/Empty States). Do not use generic placeholders.",
+    "Ensure all custom UI elements (like progress rings and jersey-number watermarks) are styled per these guidelines, utilizing absolute positioning and negative z-index where necessary.",
+    "Make heavy use of depth: layers should step up via background color (#161b2e -> #1b2035 -> #252b40).",
+    "Use standard HTML/Tailwind components and Shadcn where logic is needed (Data Tables, Dialogs) but heavily customize them to remove the default Vercel-look."
+  ]
+}
