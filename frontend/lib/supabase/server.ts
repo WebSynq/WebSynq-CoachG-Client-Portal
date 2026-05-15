@@ -1,0 +1,42 @@
+import { createServerClient } from "@supabase/ssr";
+import { cookies } from "next/headers";
+
+// Server-side Supabase client bound to the request cookies. Use this in
+// Server Components and Route Handlers when you need the current user.
+export function createClient() {
+  const cookieStore = cookies();
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (!url || !key) return null;
+
+  return createServerClient(url, key, {
+    cookies: {
+      getAll() {
+        return cookieStore.getAll();
+      },
+      setAll(cookiesToSet) {
+        try {
+          cookiesToSet.forEach(({ name, value, options }) =>
+            cookieStore.set(name, value, options)
+          );
+        } catch {
+          // setAll called from a Server Component; middleware refreshes the session.
+        }
+      },
+    },
+  });
+}
+
+// Service-role client. Server-only. Bypasses RLS. Use sparingly and never
+// import from a Client Component or expose to the browser.
+import { createClient as createSupabaseClient, SupabaseClient } from "@supabase/supabase-js";
+
+export function createAdminClient(): SupabaseClient | null {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !serviceKey) return null;
+  return createSupabaseClient(url, serviceKey, {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
