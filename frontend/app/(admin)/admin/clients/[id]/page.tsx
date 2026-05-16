@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { createClient, createAdminClient } from "@/lib/supabase/server";
 import { allLessons, MODULES } from "@/content/modules";
 import { ArrowLeft, Mail, ExternalLink } from "lucide-react";
+import AccessLinkPanel from "@/components/admin/AccessLinkPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +12,7 @@ interface ProfileRow {
   is_admin: boolean; ghl_contact_id: string | null;
   ghl_sub_account_id: string | null; last_seen: string | null;
   created_at: string;
+  portal_access_token: string | null;
 }
 interface ProgressRow { lesson_id: string; module_id: string; completed_at: string; }
 
@@ -74,6 +76,13 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
         <Meta label="GHL Contact" value={p.ghl_contact_id ?? "—"} mono />
         <Meta label="Last Seen" value={p.last_seen ? new Date(p.last_seen).toLocaleString() : "—"} />
       </div>
+
+      {/* Auto-login access link (Option B) */}
+      <AccessLinkPanel
+        clientId={p.id}
+        initialToken={p.portal_access_token}
+        siteUrl={process.env.NEXT_PUBLIC_SITE_URL ?? ""}
+      />
 
       {/* Timeline */}
       <section>
