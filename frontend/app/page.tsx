@@ -1,7 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { code?: string; redirect?: string };
+}) {
+  // Auth fallback: if a magic-link callback lands here (because Supabase
+  // Site URL points at root), forward the code to /auth/callback which
+  // exchanges it for a session and finishes the sign-in.
+  if (searchParams.code) {
+    const next = searchParams.redirect ?? "/dashboard";
+    redirect(`/auth/callback?code=${encodeURIComponent(searchParams.code)}&redirect=${encodeURIComponent(next)}`);
+  }
+
   return (
     <div className="min-h-screen overflow-hidden relative">
       {/* Hero background image with overlay */}
