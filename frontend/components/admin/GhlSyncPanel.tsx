@@ -81,9 +81,9 @@ export default function GhlSyncPanel({
 
       <div className="grid gap-3 lg:grid-cols-2">
         <ActionCard
-          title="Pull Tagged Contacts"
-          description="Search GHL contacts with the coachg-client tag and upsert into the profiles table."
-          buttonLabel="Sync Contacts Now"
+          title="Bulk Onboard Tagged Contacts"
+          description="Pull every GHL contact tagged `coachg-client`, create their portal account, generate their personal auto-login link, and write the link back to GHL's portal_access_link field. Idempotent — run as often as you like."
+          buttonLabel="Onboard All Now"
           onClick={syncContacts}
           busy={busyContacts}
           result={contactResult}
